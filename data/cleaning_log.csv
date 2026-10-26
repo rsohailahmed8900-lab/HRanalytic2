@@ -1,0 +1,8 @@
+Step,Issue found,Action taken,Affected
+Standardise categories,'TravelRarely' used instead of 'Travel_Rarely' in BusinessTravel,Merged into 'Travel_Rarely',8 rows
+Remove duplicates,Fully identical rows,"Dropped, kept first occurrence",7 rows
+Remove duplicates,Same EmpID repeated with conflicting 'YearsWithCurrManager' values,Kept first record per EmpID (EmpID must be unique),3 rows
+Handle missing values,Missing 'YearsWithCurrManager' (correlates ~0.71 with YearsInCurrentRole),Imputed with the median of employees sharing the same YearsInCurrentRole; flagged in 'YearsWithCurrManager_Imputed',57 rows
+Drop constant columns,"No variance: EmployeeCount, Over18, StandardHours",Removed,3 cols
+Drop redundant columns,EmployeeNumber is a second identifier that was also duplicated; EmpID is the key,Removed,1 col
+Feature engineering,Coded 1-4 / 1-5 scales are hard to read,"Added AttritionFlag, readable label columns, AvgSatisfaction, TenureBucket, PromotionStatus, IncomePerYearExp",10 new cols
